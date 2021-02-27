@@ -1,14 +1,10 @@
 public  interface Varias <T> {
 
-  public void Ordenar ();
+  
 
-  public void Push ();
+  public void push (T e);
 
-  public T Pop ();
-
-  public void AddFirst ();
-
-  public T Append();
+  public T pop ();
 
   public int size ();
 }
