@@ -5,11 +5,17 @@ public class Factory {
     }
 
     public Varias getListas(int n){
+        Varias a = null;
         if (n == 1){
-            return new SingleLinkedList<>();
+
+            a = new SingleLinkedList<>();
+
         }else if (n ==2){
-            return new DoubleLinkedList<>();
+            a = new DoubleLinkedList<>();
         }
+        
+
+        return a;
     }
 
     public Varias getVector(){
