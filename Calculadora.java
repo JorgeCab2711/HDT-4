@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 public class Calculadora {
 
     Vector_<Integer> data;
@@ -19,7 +21,7 @@ public class Calculadora {
       return calc;
     }
 
-
+    //Método para hacer el calculo de la operacion
     public String calculo(String aString) 
     {
         int b = 0;
@@ -58,58 +60,56 @@ public class Calculadora {
         return String.valueOf(data.pop());
     }
 
-    static String infixToPostfix(String exp) 
-    { 
-        // initializing empty String for result 
-        String result = new String(""); 
-          
-        // initializing empty stack 
-        factory.seleccionar();
-          
-        for (int i = 0; i<exp.length(); ++i) 
-        { 
-            char c = exp.charAt(i); 
-              
-            // If the scanned character is an 
-            // operand, add it to output. 
+    //Método para verificar los signos correctos
+    //Codigo reciclado con cambios
+    public static int verif(char c){
+        if (c == '+' || c == '-'){
+            return 1;
+        }
+        else if (c == '/' || c == '*'){
+            return 2;
+        }
+        else if (c == '^'){
+            return 3;
+        }
+        else{
+            return -1;
+        }
+    }
+
+
+
+   //Calculadora de infixA postfix
+   //Código reciclado de la calculadora 
+    public static String infixtoPostfix(String parametro){
+        String resultadoString = new String(""); 
+        Stack<Character> stack = new Stack<>(); 
+        for (int i = 0; i < parametro.length(); ++i){ 
+            char c = parametro.charAt(i); 
             if (Character.isLetterOrDigit(c)) 
-                result += c; 
-               
-            // If the scanned character is an '(',  
-            // push it to the stack. 
+                resultadoString += c; 
             else if (c == '(') 
-                stack.push(c); 
-              
-            //  If the scanned character is an ')',  
-            // pop and output from the stack  
-            // until an '(' is encountered. 
-            else if (c == ')') 
-            { 
-                while (!stack.isEmpty() &&  
-                        stack.peek() != '(') 
-                    result += stack.pop(); 
-                  
+                stack.push(c);
+            else if (c == ')') { 
+                while (!stack.isEmpty() &&  stack.peek() != '(') 
+                    resultadoString += stack.pop(); 
+                
                     stack.pop(); 
             } 
-            else // an operator is encountered 
-            { 
-                while (!stack.isEmpty() && Prec(c)  
-                         <= Prec(stack.peek())){ 
-                    
-                    result += stack.pop(); 
-             } 
+            else{ 
+                while (!stack.isEmpty() && verif(c)<= verif(stack.peek())){ 
+                    resultadoString += stack.pop(); 
+                } 
                 stack.push(c); 
-            } 
-       
+            }
         } 
-       
-        // pop all the operators from the stack 
+
         while (!stack.isEmpty()){ 
             if(stack.peek() == '(') 
-                return "Invalid Expression"; 
-            result += stack.pop(); 
-         } 
-        return result; 
+                return "Operación es invalida"; 
+            resultadoString += stack.pop(); 
+        } 
+        return resultadoString; 
     }
     
     
