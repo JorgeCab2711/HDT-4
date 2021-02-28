@@ -1,6 +1,6 @@
 import java.util.Vector;
 
-public class Vector_ <T> implements Varias <T>{
+public class Vector_ <T> extends Varias <T>{
 //-----------atributos*--------------
   Vector<T> vect = new Vector<T>();
 

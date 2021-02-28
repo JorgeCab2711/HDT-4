@@ -1,25 +1,19 @@
 public class Factory {
     
-    public Varias getArrayL(){
-        return new ArrayL<>();
-    }
-
-    public Varias getListas(int n){
-        Varias a = null;
-        if (n == 1){
-
-            a = new SingleLinkedList<>();
-
-        }else if (n ==2){
-            a = new DoubleLinkedList<>();
-        }
+    public static Varias seleccionar(int clase){
         
-
-        return a;
-    }
-
-    public Varias getVector(){
-
-        return new Vector_<>();
+        switch(clase){
+            case 1:
+                return new Vector_<>();
+            case 2:
+                return new ArrayL<>();
+            case 3:
+                return new SingleLinkedList<>();
+            case 4:
+                return new DoubleLinkedList<>();
+            default:
+            System.out.println("No se encuentra el objeto en factory.");
+            return null;
+        }
     }
 }

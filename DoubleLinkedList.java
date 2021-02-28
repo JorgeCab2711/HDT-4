@@ -1,5 +1,5 @@
 //Codigo del módulo compartido del libro por Douglas
-public class DoubleLinkedList<T> extends Lista<T>{
+public class DoubleLinkedList<T> extends Varias<T>{
     protected int count;
     protected DoubleNode<T> head;
     protected DoubleNode<T> tail;

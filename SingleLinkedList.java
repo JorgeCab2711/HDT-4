@@ -1,4 +1,4 @@
-public class SingleLinkedList<T> extends Lista<T>{
+public class SingleLinkedList<T> extends Varias<T>{
     protected int count; 
     protected Node<T> head; 
 

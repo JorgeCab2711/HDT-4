@@ -1,8 +1,8 @@
-public  interface Varias <T> {
+public  abstract class Varias <T> {
 
-  public void push (T e);
+  public abstract void push (T e);
 
-  public T pop ();
+  public abstract T pop ();
 
-  public int size ();
+  public abstract int size ();
 }

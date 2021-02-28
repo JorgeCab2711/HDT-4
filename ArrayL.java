@@ -6,7 +6,7 @@ Feha de última modificación 23/02/2021
 
 import java.util.ArrayList;
 
-public class ArrayL <T>  implements Varias <T>  {
+public class ArrayL <T>  extends Varias <T>  {
 
     private ArrayList<T> arraylist = new ArrayList<T>();
     
