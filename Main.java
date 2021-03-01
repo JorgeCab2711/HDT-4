@@ -1,14 +1,28 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 public class Main{
     public static void main(String[] args) {
         boolean enProceso = true;
         while (enProceso){
             try{
+                //Se intancia todas las clases necesarias
                 Scanner scan = new Scanner(System.in);
                 Calculadora calcu = Calculadora.Singelton();
-                String OperacionPersona;
+                ArrayList<String> infix = new ArrayList<String>();
+                ArrayList<String> postfix = new ArrayList<String>();
+                
+                //Se le pide al usuario su operación en infix
+                System.out.println("--------------------Calculadora infix postfix--------------\nIngrese la operación infix: ");
+                String operacion = scan.next();
+                infix.add(operacion);
+                System.out.println("Sus datos en infix: "+ infix.get(0));
+                //Se convierte a postfix
+                postfix.add(calcu.infixtoPostfix(operacion));
+                String dato = postfix.get(0);
+                System.out.println("Sus datos en postfix: "+ dato);
 
-                //Menú
+
+                //Menú de selección
                 System.out.println("Bienvenido");
                 System.out.println("Para utilizar nuestra calculadora, primero elija uno de los siguientes ADT a usar: ");
                 System.out.println("1. Vector");
@@ -23,12 +37,15 @@ public class Main{
                 }
 
                 //Dependiendo de la opcion la persona hará que se operen los valores de cierta manera
-                Varias fact = Factory.seleccionar(opcion1);
-                fact.push("Hola");
-                fact.push("Hola");
-                fact.push("Hola");
-                fact.push("Hola");
-                System.out.println(fact.size());
+                Varias<String> otroDato = Factory.seleccionar(opcion1);
+
+                for (int i = 0; i < otroDato.size() ; i++) {
+                    System.out.println("Hola");
+                    System.out.println(otroDato.pop());
+                }
+
+
+                
                 enProceso = false;
             }
             catch (Exception e){
