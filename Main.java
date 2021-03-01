@@ -39,15 +39,14 @@ public class Main{
                 //Dependiendo de la opcion la persona hará que se operen los valores de cierta manera
                 Varias<String> otroDato = Factory.seleccionar(opcion1);
 
-                for (int i = 0; i < otroDato.size() ; i++) {
-                    System.out.println("Hola");
-                    System.out.println(otroDato.pop());
-                }
+                String unoMasString = calcu.calculo(dato);
 
+                System.out.println(unoMasString);
+                
 
                 
                 enProceso = false;
-            }
+           }
             catch (Exception e){
                 System.out.println("Usted no ha ingresado una opcion correcta.");
             }
